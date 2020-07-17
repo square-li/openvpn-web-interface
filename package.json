@@ -1,0 +1,14 @@
+{
+  "name": "openvpn-web-interface",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "Web Interface for Openvpn3",
+  "dependencies": {
+    "restify": "^8.5.1",
+    "shelljs": "^0.8.4"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
