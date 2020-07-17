@@ -88,8 +88,8 @@ server.get('/sessions-list', (req, res) => {
 
 server.post('/session-start', (req, res) => {
     const user = process.env.USER || req.body ? req.body.user : undefined
-    const pwd = process.env.USER || req.body ? req.body.pwd : undefined
-    const config = process.env.USER || req.body ? req.body.config : undefined
+    const pwd = process.env.PWD || req.body ? req.body.pwd : undefined
+    const config = process.env.CONFIG || req.body ? req.body.config : undefined
     if (user && pwd && config) {
         const command = `echo "${user} ${pwd}" | ${app} session-start --config ${config}`
         const result = shell.exec(command)
