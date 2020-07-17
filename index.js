@@ -13,12 +13,19 @@ getSessionList = () => {
         if (line === '') {
             arr.push(session)
             session = {}
+            return 
         }
         line = line.trim().split(/\s\s+/)
 
         line.forEach(item => {
-            item = item.split(': ')
-            session[item[0]] = item[1]
+            console.log
+            item = item.toLowerCase().split(': ')
+            if(item[1].includes(',')){
+                session[item[0]] = item[1].split(',').map(item=>item.trim())
+            }
+            else {
+                session[item[0]] = item[1]
+            }
         })
     })
     console.log(arr)
@@ -27,12 +34,11 @@ getSessionList = () => {
 
 
 server.get('/sessions-list', (req, res) => {
-
     res.send(getSessionList()    )
-
 })
-server.post('/hello', (req, res) => {
-    res.send('Posting hello')
+
+server.post('/session-stop', (req, res) => {
+    const {path} = req.body 
 })
 
 
